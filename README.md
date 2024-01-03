@@ -84,6 +84,12 @@ If you'd like to run your own instance of ChatGPT API Free, you can easily do so
 1. Deploy Docker locally or on [Google Cloud Run](https://cloud.google.com/run).
 1. Setup rate limit locally or using [Google Cloud Armor](https://cloud.google.com/armor/docs/rate-limiting-overview).
 
+```
+npm install node-fetch
+npm install https-proxy-agent
+npm start
+```
+
 ## Improve this project
 
 This project is always seeking ways to improve and welcomes feedback and contributions from its users. If you have any suggestions or ideas, please feel free to create an issue or submit a pull request on the GitHub repository.

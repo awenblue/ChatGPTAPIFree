@@ -3,9 +3,11 @@ dotenv.config();
 
 import express from 'express';
 import fetch from 'node-fetch';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 
 const port = parseInt(process.env.PORT || '8080', 10);
 const api_keys = JSON.parse(process.env.API_KEYS);
+const proxyUrl = process.env.HTTPS_PROXY;
 const upstreamUrl = 'https://api.openai.com/v1/chat/completions';
 
 const corsHeaders = {
@@ -57,6 +59,7 @@ const handlePost = async (req, res) => {
     const resUpstream = await fetch(upstreamUrl, {
       method: 'POST',
       headers: requestHeader,
+      agent: new HttpsProxyAgent(proxyUrl),
       body: JSON.stringify(req.body),
     });
 
